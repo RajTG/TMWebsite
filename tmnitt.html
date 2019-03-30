@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+
+
+
+	<title> TM-NITT </title>
+	<style>
+
+  body{
+    background-color:#231f20;
+  }
+	
+
+	     #navbarr {padding-right: 5%; color:#ffffff;}
+      
+	     .nav li:hover {
+	     	
+	     	border-bottom: 4px solid #F1C40F;
+	     }
+
+	  /* Parallax base styles
+  --------------------------------------------- */
+
+       .parallax {
+         height: 500px; /* fallback for older browsers */
+         height: 100vh;
+         overflow-x: hidden;
+         overflow-y: auto;
+         -webkit-perspective: 300px;
+         perspective: 300px;
+         -webkit-perspective-origin-x: 100%;
+         perspective-origin-x: 100%;
+         font-family: 'Roboto', sans-serif;
+       }
+     
+       .parallax__group {
+         position: relative;
+         height: 500px; /* fallback for older browsers */
+         height: 100vh;
+         -webkit-transform-style: preserve-3d;
+         transform-style: preserve-3d;
+       }
+
+       .parallax__group3rd {
+         position: relative;
+         height: 500px; /* fallback for older browsers */
+         height: 90vh;
+         -webkit-transform-style: preserve-3d;
+         transform-style: preserve-3d;
+       }
+     
+       .parallax__layer {
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         -webkit-transform-origin-x: 100%;
+         transform-origin-x: 100%;
+       }
+     
+       .parallax__layer--fore {
+         -webkit-transform: translateZ(90px) scale(.7);
+         transform: translateZ(90px) scale(.7);
+         z-index: 1;
+       }
+     
+       .parallax__layer--base {
+         -webkit-transform: translateZ(0);
+         transform: translateZ(0) ;
+         z-index: 4;
+       }
+     
+       .parallax__layer--back {
+         -webkit-transform: translateZ(-300px) scale(2);
+         transform: translateZ(-300px) scale(2);
+         z-index: 3;
+       }
+     
+       .parallax__layer--deep {
+         -webkit-transform: translateZ(-600px) scale(3);
+         transform: translateZ(-600px) scale(3);
+         z-index: 2;
+       }
+     
+       body, html {
+         overflow: hidden;
+       }
+     
+       body {
+         font: 100% / 1.5 Arial;
+       }
+     
+       * {
+         margin:0;
+         padding:0;
+       }
+     
+       .parallax {
+         font-size: 200%;
+       }
+     
+        /* centre the content in the parallax layers */
+       .title {
+         text-align: center;
+         position:absolute;
+         left: 50%;
+         top: 50%;
+         -webkit-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%);
+       }
+
+       .mainheading {
+       	 text-align: center;
+       	 font-size: 100px;
+       	 color: #ffffff;
+       	 -webkit-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%); 
+         position: absolute;
+         left: 30%;
+         top: 25%;
+        
+       
+       }
+
+       #b0{
+        display:none;
+       }
+       #meetinfo{
+        position: absolute;
+        left:70%;
+        top:50%;
+       }
+
+       #about{
+        color:#ffffff; 
+        top:15%; 
+        font-size:50px;
+       }
+
+       #aboutpara{
+        color:#ffffff;
+        top:45%; 
+        font-size:20px;
+        padding-left:20vw; 
+        padding-right:20vw;
+       }
+
+       #loader {
+       	 position:absolute;
+       	left: 47%;
+        top: 55%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        /*box-shadow: inset 0 0 50px #f1c40f,
+    				0 0 50px #f1c40f,
+    				0px 0 50px #f1c40f; */
+       }
+
+       #loaderp{
+       color:#F1C40F; 
+       font-size:25px;
+       text-align: center;
+       }
+
+
+
+      .wrap
+      {
+        margin:10% auto 0 auto;
+        width:100%;
+        display:flex;
+        align-items:space-around;
+        max-width:1200px;
+      
+      }
+      .tile
+      {
+        width:250px;
+        height:250px;
+        margin:10px;
+        
+        display:inline-block;
+        background-size:cover;
+        position:relative;
+        cursor:pointer;
+        transition: all 0.4s ease-out;
+        /*box-shadow: 0px 35px 77px -17px rgba(243,210,80,0.44); */
+        box-shadow: 0px 0px 5px 5px rgba(243,210,80,0.44);
+        overflow:hidden;
+        color:white;
+        
+        
+      }
+ 
+      .tile .text
+      {
+      /*   z-index:99; */
+        position:absolute;
+        padding:30px;
+        height:calc(100% - 60px);
+      }
+      .tile h2
+      {
+       
+        font-weight:300;
+        margin:0;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      }
+      .tile h4
+      {
+        font-weight:100;
+        margin:10px 0 0 0;
+        font-style:italic;
+         transform: translateX(200px);
+      }
+      .tile p
+      {
+        font-weight:300;
+        margin:10px 0 0 0;
+        line-height: 25px;
+      /*   opacity:0; */
+        transform: translateX(-200px);
+        transition-delay: 0.2s;
+      }
+      .animate-text
+      {
+        opacity:0;
+        transition: all 0.6s ease-in-out;
+      }
+      .tile:hover
+      {
+       background-color:#231f20; 
+      box-shadow: 0 0 10px 10px rgba(243,210,80,0.8);
+        transform:scale(1.05);
+      }
+      .tile:hover h2{
+        color:#f3d250;
+      }
+      .tile:hover img
+      {
+        opacity: 0.2;
+      }
+      .tile:hover .animate-text
+      {
+        transform:translateX(0);
+        opacity:1;
+      }
+
+      #contpoly{
+        -webkit-clip-path:polygon(100% 0, 0 0, 0 100%, 60% 100%);
+        clip-path: polygon(100% 0, 0 0, 0 100%, 60% 100%); 
+        text-align:center; 
+        color:#ffffff; 
+        background:url(contimg-480x720cu.jpg) no-repeat; 
+        height:100vh; 
+        width:30vw;"
+      }
+
+
+
+
+        #contact{
+          width: 20%;
+          display:flex;
+          height: 20%;
+          background-color:#393939;
+    
+          color: #ffffff;
+          left:30%;
+          top:25%;
+          position:absolute;
+    
+        }
+     
+     
+     
+   
+     
+       #group1 {
+         z-index: 5; /* slide over group 2 */
+       }
+       #group1 .parallax__layer--base {
+         background: url("mainbg-1383x921cu.jpg") no-repeat center center fixed;
+       }
+     
+       #group2 {
+         z-index: 3; /* slide under groups 1 and 3 */
+       }
+       #group2 .parallax__layer--back {
+       		
+       }
+
+     
+       #group3 {
+         z-index: 4; /* slide over group 2 and 4 */
+       }
+       #group3 .parallax__layer--base {
+        background: url("awards2cu.png") no-repeat center center fixed; 
+       }
+
+       #group3 .parallax__layer--fore {
+       	size:100%;
+       }
+     
+       #group4 {
+         z-index: 2; /* slide under group 3 and 5 */
+       }
+       #group4 .parallax__layer--deep {
+         background:#ffd935;
+       }
+
+     
+       #group5 {
+         z-index: 3; /* slide over group 4 and 6 */
+       }
+       #group5 .parallax__layer--base {
+         background:#231f20;
+        /*background: url("tmallpic.jpg") no-repeat center center fixed;
+        background-size: 100%;*/
+      
+       }
+     
+       #group6 {
+         z-index: 2; /* slide under group 5 and 7 */
+       }
+       #group6 .parallax__layer--back {
+         background: rgb(245,235,100);
+       }
+     
+       #group7 {
+         z-index: 3; /* slide over group 7 */
+       }
+       #group7 .parallax__layer--base {
+         background: rgb(255,241,100);
+       }
+
+
+       @import url(https://fonts.googleapis.com/css?family=Lato);
+       
+
+      a {
+          text-decoration: none;
+          color: #fff;
+      }
+      p > a:hover{
+          color: #d9d9d9;
+          text-decoration:  underline;
+      }
+
+      ._12 {
+          font-size: 1.2em;
+      }
+      ._14 {
+          font-size: 1.4em;
+      }
+      ul.social-icons {
+          padding:10px;
+          list-style: none;
+      }
+      .footer-social-icons {
+          width: 350px;
+          display:block;
+          margin: 0 auto;
+      }
+      .social-icon {
+          color: #fff;
+          margin:7%;
+      }
+      ul.social-icons {
+          margin-top: 10px;
+      }
+      .social-icons li {
+          vertical-align: top;
+          display: inline;
+          height: 100px;
+      }
+      .social-icons a {
+          color: #fff;
+          text-decoration: none;
+      }
+      .fa-facebook {
+          padding:10px 14px;
+          -o-transition:.5s;
+          -ms-transition:.5s;
+          -moz-transition:.5s;
+          -webkit-transition:.5s;
+          transition: .5s;
+          background-color: #322f30;
+      }
+      .fa-facebook:hover {
+          background-color: #3d5b99;
+      }
+      .fa-instagram {
+          padding:10px 12px;
+          -o-transition:.5s;
+          -ms-transition:.5s;
+          -moz-transition:.5s;
+          -webkit-transition:.5s;
+          transition: .5s;
+          background-color: #322f30;
+      }
+      .fa-instagram:hover {
+          background-color: #fb3958;
+      }
+
+
+      .fa-youtube {
+          padding:10px 12px;
+          -o-transition:.5s;
+          -ms-transition:.5s;
+          -moz-transition:.5s;
+          -webkit-transition:.5s;
+          transition: .5s;
+          background-color: #322f30;
+      }
+      .fa-youtube:hover {
+          background-color: #e64a41;
+      }
+
+
+
+          #contitle{
+            font-size: 50px; 
+            top:20%; 
+            left:55%;
+          }
+
+
+          .snip1543 {
+            background-color: #4056a1;
+            color: #ffffff;
+            width:100px;
+            height:140px;
+            font-size: 16px;
+            margin: 10px;
+            max-width: 315px;
+            min-width: 200px;
+            overflow: hidden;
+            position: relative;
+            text-align: left;
+            width: 100%;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+          }
+          
+          .snip1543 *,
+          .snip1543 *:before,
+          .snip1543 *:after {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all 0.45s ease;
+            transition: all 0.45s ease;
+          }
+          
+          .snip1543 img {
+            backface-visibility: hidden;
+            max-width: 100%;
+            vertical-align: top;
+          }
+          
+          .snip1543:before,
+          .snip1543:after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            content: '';
+            background-color: #231f20;
+            opacity: 0.5;
+            -webkit-transition: all 0.45s ease;
+            transition: all 0.45s ease;
+          }
+          
+          .snip1543:before {
+            -webkit-transform: skew(30deg) translateX(-80%);
+            transform: skew(30deg) translateX(-80%);
+          }
+          
+          .snip1543:after {
+            -webkit-transform: skew(-30deg) translateX(-70%);
+            transform: skew(-30deg) translateX(-70%);
+          }
+          
+          .snip1543 figcaption {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            z-index: 1;
+            bottom: 0;
+            padding: 25px 40% 25px 20px;
+          }
+          
+          .snip1543 figcaption:before,
+          .snip1543 figcaption:after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #231f20;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            content: '';
+            opacity: 0.7;
+            z-index: -1;
+          }
+          
+          .snip1543 figcaption:before {
+            -webkit-transform: skew(30deg) translateX(-100%);
+            transform: skew(30deg) translateX(-100%);
+          }
+          
+          .snip1543 figcaption:after {
+            -webkit-transform: skew(-30deg) translateX(-90%);
+            transform: skew(-30deg) translateX(-90%);
+          }
+          
+          .snip1543 h3,
+          .snip1543 p {
+            margin: 0;
+            opacity: 0;
+            letter-spacing: 1px;
+          }
+          
+          .snip1543 h1{
+            display:block;
+          }
+          
+          .snip1543 h3 {
+           
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1em;
+          
+          }
+          
+          .snip1543 p {
+            font-size: 0.9em;
+            padding-top: 10px;
+          }
+          
+          .snip1543 a {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+          }
+          
+          .snip1543:hover h3,
+          .snip1543.hover h3,
+          .snip1543:hover p,
+          .snip1543.hover p {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 0.9;
+            -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+          }
+          
+          .snip1543:hover h1{
+            display:none;
+            transition-delay:0.5s;
+          }
+          .snip1543:hover:before,
+          .snip1543.hover:before {
+            -webkit-transform: skew(30deg) translateX(-20%);
+            transform: skew(30deg) translateX(-20%);
+            -webkit-transition-delay: 0.05s;
+            transition-delay: 0.05s;
+          }
+          .snip1543:hover:after h1{
+            display:block;
+            transition-delay:1s;
+          }
+          .snip1543:hover:after,
+          .snip1543.hover:after {
+            -webkit-transform: skew(-30deg) translateX(-10%);
+            transform: skew(-30deg) translateX(-10%);
+          }
+          
+          .snip1543:hover figcaption:before,
+          .snip1543.hover figcaption:before {
+            -webkit-transform: skew(30deg) translateX(-40%);
+            transform: skew(30deg) translateX(-40%);
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+          }
+          
+          .snip1543:hover figcaption:after,
+          .snip1543.hover figcaption:after {
+            -webkit-transform: skew(-30deg) translateX(-30%);
+            transform: skew(-30deg) translateX(-30%);
+            -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+          }
+          .snip1543 .fa-facebook {
+            background: #3B5998;
+            color: white;
+          }
+
+          #snipdiv{
+            top:55%;
+            left:55%;"
+          }
+
+          #sniprow{
+            height:200px; 
+            width:40vw;
+          }
+
+          #sc-icon-div1{
+             top:75%; 
+             left:55%;"
+          }
+
+          #sc-icon-div2{
+            display:none;
+            top:60%; 
+            left:85%;
+          }
+
+
+@media (max-width: 1000px) {
+  .wrap {
+   flex-direction: column;
+    width:400px;
+  }
+}
+    
+
+@media screen and (max-width: 600px)
+{
+    #opener{
+    display:none;
+  }
+
+    #group1 .parallax__layer--base {
+         background: url("mainbg-857x571cu.jpg") no-repeat center center fixed;
+       }
+    #mainhd{
+      font-size: 45px;
+      left:50%;
+      top:20%;
+      width:100vw;
+
+    }
+
+    #b0{
+      display:inline-block;
+    }
+    #meetinfo{
+      left:30%;
+      top:30%;
+      display:none;
+    }
+
+    .flip-card{
+      left:60%;
+    }
+
+    #aboutpara{
+      font-size: 80%;
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+
+    #loaderp{
+      font-size: 20px ;
+    }
+    #circularLoader,#circularLoader1,#circularLoader2
+    {
+      width:170px;
+      height:170px;
+
+    }
+
+    #contitle{
+      font-size: 30px;
+      left:50%;
+    }
+
+    #cont-diag{
+      display:none;
+    }
+
+    .snip1543{
+      margin:5px;
+    }
+    #snipdiv{
+      left:30%;
+      top:40%;
+    }
+
+    #sniprow{
+      width:30vw;
+      height:100px;
+    }
+
+    #sc-icon-div1{
+      top:95%;
+    }
+
+}
+
+@media screen and (max-width: 800px) and (min-width: 601px)
+{
+
+    #group1 .parallax__layer--base {
+         background: url("mainbg-857x571cu.jpg") no-repeat center center fixed;
+       }
+    #mainhd{
+      font-size: 80px;
+      left:50%;
+      top:20%;
+      width:100vw;
+    }
+
+    #b0{
+      display: inline-block;
+    }
+    #meetinfo{
+      left:50%;
+      display:none;
+      top:40%;
+
+    }
+
+    #aboutpara{
+      font-size: 80%;
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+
+    #loader{
+      width:75%;
+      height:75%;
+    }
+
+    #circularLoader,#circularLoader1,#circularLoader2
+    {
+      width:170px;
+      height:170px;
+      text-align:  center;
+
+    }
+
+    #sniprow{
+      width:30vw;
+      left:40%;
+    }
+
+    #sc-icon-div1{
+      display:none;
+    }
+
+
+    #sc-icon-div2{
+    display:inline-block;
+    top:60%;
+    }
+
+    #contpoly{
+      background: url("contimg-454x651cu.jpg");
+    }
+
+
+
+}
+
+@media screen and (min-width:800px) and (max-width:1384px)
+{
+  #contpoly{
+        background: url("contimg-480x720cu.jpg");
+      }
+
+
+}
+
+@media screen and (min-width:1384px) and (max-width:1920px){
+
+      #group1 .parallax__layer--base {
+             background: url("mainbg-1600x1066cu.jpg") no-repeat top center fixed;
+           }
+      
+      .mainheading{
+        font-size:120px;
+        left:30%;
+      }
+
+      #meetinfo{
+        left:80%;
+        top:70%;
+      }
+      #about{
+        font-size: 60px;
+        top:40%;
+      }
+      #aboutpara{
+        font-size:30px;
+        top:60%;
+        padding:10vw;
+      }
+
+
+      #contpoly{
+        background: url("contimg-720x1080cu.jpg");
+      }
+}
+
+@media screen and (min-width:1920px)
+{
+      #group1 .parallax__layer--base {
+             background: url("mainbg-1920x1279cu.jpg") no-repeat top center fixed;
+           }
+
+      .mainheading{
+        font-size:150px;
+        left:30%;
+      }
+
+      #meetinfo{
+        left:80%;
+        top:70%;
+      }
+      #about{
+        font-size: 60px;
+        top:40%;
+      }
+      #aboutpara{
+        font-size:30px;
+        top:60%;
+        padding:10vw;
+      }
+      
+      #circularLoader,#circularLoader1,#circularLoader2{
+        width:480;
+        height:480;
+      }
+
+      #loaderp{
+        font-size: 40px;
+      }
+      #contitle{
+        font-size:80px;
+      }
+
+      .snip1543{
+        width:400px;
+        height:210px;
+        font-size: 30px;
+        margin: 20px;
+      }
+
+      #contpoly{
+        background: url("contimg-720x1080cu.jpg");
+      }
+}
+
+      #whodiv{
+        color:#ffd935; 
+        font-size: 30px;
+        top:130%;
+        left:50%
+      }
+
+
+      #wholink{
+        color:#ffd935;
+      }
+
+      #wholink:hover{
+        text-decoration: none;
+        color:#ffffff;
+      }
+
+
+      #svgcont {
+        height: 100%;
+        background-size: 0.12em 100%;
+        font: 12em/1 Roboto;
+      }
+      .text--line {
+        font-size: 0.3em;
+      }
+      svg {
+        position: absolute;
+        height: 80%;
+        width: 90%;
+        left:5%;
+      }
+      .text-copy {
+        fill: none;
+        stroke: white;
+        stroke-dasharray: 7% 28%;
+        stroke-width: 3px;
+        animation: stroke-offset 4s infinite linear;
+      }
+      .text-copy:nth-child(1) {
+        stroke: #ffd935;
+        stroke-dashoffset: 7%;
+      }
+      .text-copy:nth-child(2) {
+        stroke: #ffd935;
+        stroke-dashoffset: 14%;
+      }
+      .text-copy:nth-child(3) {
+        stroke: #ffd935;
+        stroke-dashoffset: 21%;
+      }
+      .text-copy:nth-child(4) {
+        stroke: #ffd935;
+        stroke-dashoffset: 28%;
+      }
+      .text-copy:nth-child(5) {
+        stroke: #ffd935;
+        stroke-dashoffset: 35%;
+      }
+      @keyframes stroke-offset {
+        50% {
+          stroke-dashoffset: 45%;
+          stroke-dasharray: 0 100%%;
+        }
+      }
+	</style>
+</head>
+<body>
+	<!-- colors #eaeaea(light grey) #231f20(dark grey) #ad974f(golden) #8e793e(dark golden) #f3d250(yellow dark)-->
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#231f20">
+		<div class="container-fluid">
+			<div class="navbar-header">
+      			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarr">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>                        
+      			</button>
+    		</div>
+    		<div class="collapse navbar-collapse" id="navbarr">
+				<ul class="nav navbar-nav navbar-right">
+          <li id="b0"><a href="#group1" onclick="showMeet()">Next Meeting</a></li>
+					<li id="b1"><a href="#group1">Home</a></li>
+					<li id="b2"><a href="#group2">About</a></li>
+					<li id="b3"><a href="#group3">Awards</a></li>					
+					<li id="b5"><a href="#group4">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+<script>
+   $(function () {
+            $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function () {
+                    $('.navbar-toggle:visible').click();
+            });
+    });
+function showMeet() {
+
+  if(document.getElementById('meetinfo').style.display == 'none')
+      document.getElementById('meetinfo').style.display = "inline-block";
+  else
+      document.getElementById('meetinfo').style.display = "none";
+}
+</script>
+
+	<!-- colors #eaeaea(light grey) #231f20(dark grey) #ad974f(golden) #8e793e(dark golden) -->
+	<div class="parallax">
+    	<div id="group1" class="parallax__group">
+      		<div class="parallax__layer parallax__layer--base">
+            <div>
+        		  <span id="mainhd" style="color:#ffd935; font-family: 'Roboto', sans-serif;" class="mainheading">TMI NIT-Trichy</span>
+            </div>
+            <div id="meetinfo">
+            <div class="wrap">
+                <div class="tile"> 
+                  
+                  <div class="text">
+                      <h2>Next Meeting</h2>
+                      <h4 class="animate-text">6:00 pm</h4>
+                      <h4 class="animate-text">3rd April</h4>
+                      <h4 class="animate-text">LH 7</h4>
+                      <p class="animate-text">TMOD : TBA </p>
+                      <p class="animate-text">Theme: TBA </p>
+                  </div>
+                 </div>
+                </div>
+            </div>
+      		</div>
+    	</div>
+    	<div id="group2" class="parallax__group">
+      	<div class="parallax__layer parallax__layer--base">
+          <div class="container-fluid sm-12 text-center">
+            <div   class="row" >
+              <br>
+              <br>
+              <br>
+      		    <div id="about" >About</div>
+              <br>
+        	    <div id="aboutpara" ><p style="background: rgba(57,57,57,0.6);">We are a bunch of students from NIT Trichy. We are passionate about Communication and leadership skills. We are constantly communicating with people around us - at home, for work, school/college, while commuting, etc. We all know the significance of clear communication, of effectively conveying our ideas to others. Many of us are leaders or aspiring to be one. Effective communication is a key trait of successful people. That is what members at Toastmasters NIT Trichy learn (and help others with), during club meetings.</p> </div>
+            </div>
+          </div>
+      	</div>
+      	<div class="parallax__layer parallax__layer--back">
+      		<img src="tmallpic1.jpg" alt="hello" style="height:100vh; width:100%">	
+      	</div>
+    	</div>
+    	<div id="group3" class="parallax__group3rd">
+      	<div class="parallax__layer parallax__layer--fore">
+        	
+        	<div id="svgc">
+            <div id="svgcont" class="row">
+              <svg viewBox="0 0 1200 800">
+                   <symbol id="s-text">
+                     <text text-anchor="middle"
+                           x="50%"
+                           y="35%"
+                           class="text--line"
+                           >
+                       Awards
+                     </text>
+                     <text text-anchor="middle"
+                           x="50%"
+                           y="68%"
+                           class="texline2"
+                           >
+                       25
+                     </text>
+                     </symbol>
+                   </symbol>
+                   <symbol id="st-text">
+                     <text text-anchor="middle"
+                           x="15%"
+                           y="35%"
+                           class="text--line"
+                           >
+                       Meetings
+                     </text>
+                     <text text-anchor="middle"
+                           x="15%"
+                           y="68%"
+                           class="texline2"
+                           >
+                       127
+                     </text>
+                     </symbol>
+                     
+                     <symbol id="stt-text">
+                     <text text-anchor="middle"
+                           x="80%"
+                           y="35%"
+                           class="text--line"
+                           >
+                       Members
+                     </text>
+                     <text text-anchor="middle"
+                           x="80%"
+                           y="68%"
+                           class="texline2"
+                           >
+                       36
+                     </text>
+                     
+                   </symbol>
+                   
+                   
+                   <g class="g-ants">
+                     <use xlink:href="#s-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#s-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#s-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#s-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#s-text"
+                       class="text-copy"></use>     
+                   </g>
+                   <g class="g-ants">
+                     <use xlink:href="#st-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#st-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#st-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#st-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#st-text"
+                       class="text-copy"></use>     
+                   </g>
+                   <g class="g-ants">
+                     <use xlink:href="#stt-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#stt-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#stt-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#stt-text"
+                       class="text-copy"></use>     
+                     <use xlink:href="#stt-text"
+                       class="text-copy"></use>     
+                   </g>
+            </svg>
+
+            </div>
+        		 <!-- CIRCULAR LOADERS
+             <div class="row">
+        			<div class="col-sm-4">
+				      		<canvas id="circularLoader" width="240" height="240"></canvas>
+				      		<p id="loaderp">Meetings</p>
+				      </div>
+				      <div class="col-sm-4">
+				      		<canvas id="circularLoader1" width="240" height="240"></canvas>
+				      		<p id="loaderp">Awards</p>
+				      </div>
+				      <div class="col-sm-4">
+				      		<canvas id="circularLoader2" width="240" height="240"></canvas>
+				      		<p id="loaderp" >Members</p>
+				      </div>
+				    </div> -->
+			</div>
+      	</div>
+      	<div class="parallax__layer parallax__layer--base">
+        	
+      	</div>
+    	</div>
+    	<div id="group4" class="parallax__group">
+      	<div class="parallax__layer parallax__layer--base">
+
+          <div id="snipdiv" class="title" >
+            <div id="sniprow" class="row">            
+              <div class="col-md-6">
+              <figure class="snip1543">
+                  <figcaption>
+                    <h3 style="font-size:20px;">Surya</h3>
+                    <h1 style="font-size:150%;">President</h1>                    
+                    <p>+91 9994447108</p>                    
+                    <p style="margin-top:10%;"><a href="https://www.facebook.com/surya.ramachandiran.9"> <i class="fa fa-facebook"></i></a></p>                              
+                  </figcaption>
+                  <a href="#"></a>
+              </figure>
+            </div>
+            <div class="col-md-6" >          
+              <figure class="snip1543">
+                  <figcaption>
+                    <h3 style="font-size:20px;">Shreyas</h3>
+                    <h1 style="font-size:150%;">VP Public Relations</h1>                    
+                    <p>+91 9952226649</p>                    
+                    <p style="margin-top:10%;"><a href="https://www.facebook.com/shreyaskchavan"> <i class="fa fa-facebook"></i></a></p>                              
+                  </figcaption>
+                  <a href="#"></a>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+          <div id="sc-icon-div1" class="title">
+            <div class="footer-social-icons">
+              <h4 class="_14">Follow us on</h4>
+              <ul id="sc-icon-row" class="social-icons">
+                <li><a href="https://www.facebook.com/toastmastersnitt/" class="social-icon"> <i class="fa fa-facebook"></i></a></li> 
+                <li><a href="https://www.instagram.com/toastmasters_nitt/" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCWL0o_JA8Av23LhAdoP9Y4g/featured" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+              </ul>             
+            </div>
+          </div>
+
+          <div id="sc-icon-div2" class="title" >
+            <div class="footer-social-icons">
+              <h4 class="_14">Follow us on</h4>
+              <ul id="sc-icon-col" class="social-icons">
+                <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li> 
+              </ul>
+              <ul id="sc-icon-col" class="social-icons">
+                <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+              </ul>
+              <ul id="sc-icon-col" class="social-icons">
+                <li><a href="" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+              </ul>
+              
+            </div>
+          </div>
+
+                   
+        </div>
+          <div class="parallax__layer parallax__layer--back">
+          	<div id="contitle" class="title" >CONTACT US</div>
+            <div id="whodiv" class="title" style="font-size:0.8em;">
+            <br>            
+              <a id="wholink" href="https://rajtg.github.io">Toasted to perfection with &hearts; by RTG</a>
+            
+            </div>
+                    
+        
+        </div>
+      	
+      	<div class="parallax__layer parallax__layer--deep">
+        	
+          <div id="cont-diag" class="container-fluid text-center">
+            <div  class="row" >
+              <div id="contpoly" class="col-md-3">  
+              </div>
+            </div>
+          </div> 
+      	</div>
+    	</div>
+      <!--
+    	<div id="group5" class="parallax__group" style="height:70vh;">
+      	<div class="parallax__layer parallax__layer--fore" >
+        	<div class="title">Foreground Layer</div>
+          <div class="container-fluid text-center">
+            <div class="row">
+
+            </div>
+          </div>
+      	</div>
+      	<div class="parallax__layer parallax__layer--base">
+        	<div class="title">Base Layer</div>
+      	</div>
+    	</div>
+    	<div id="group6" class="parallax__group">
+      	<div class="parallax__layer parallax__layer--back">
+        	<div class="title">Background Layer</div>
+      	</div>
+      	<div class="parallax__layer parallax__layer--base">
+        	<div class="title">Base Layer</div>
+      	</div>
+    	</div>
+    	<div id="group7" class="parallax__group">
+      	<div class="parallax__layer parallax__layer--base">
+        	<div class="title">Base Layer</div>
+      	</div>
+    	</div> -->
+  </div>
+
+
+  <script> 
+  	// circular counter1
+  	function allin(ctx, numb){
+
+  		//var ctx = document.getElementById('circularLoader').getContext('2d');
+		var al = 0;
+		var start = 4.72; 
+		var cw = ctx.canvas.width;
+		var ch = ctx.canvas.height; 
+		var diff;
+		function progressSim(){
+			diff = ((al / numb) * Math.PI*2*10).toFixed(2);
+			ctx.clearRect(0, 0, cw, ch);
+			ctx.lineWidth = 3;
+			ctx.fillStyle = '#F1C40F';
+			ctx.strokeStyle = "#F1C40F";
+			ctx.textAlign = "center";
+			ctx.font="28px monospace";
+			ctx.fillText(al, cw*.52, ch*.5+5, cw+12);
+			ctx.beginPath();
+			ctx.arc(120, 120, 97, start, diff/10+start, false);
+			ctx.stroke();
+			if(al >= numb){
+				clearTimeout(sim);
+			    
+			}
+			al++;
+			ctx.shadowBlur = 30;
+			ctx.shadowColor = '#f1c40f';
+		}
+		var sim = setInterval(progressSim, 50);
+	}
+  </script> 
+
+   <script>
+  	var ctx1 = document.getElementById('circularLoader').getContext('2d');
+  	var ctx2 = document.getElementById('circularLoader1').getContext('2d');
+  	var ctx3 = document.getElementById('circularLoader2').getContext('2d');
+  	allin(ctx1, 127);
+  	setTimeout(allin, 3000, ctx2, 24);
+  	setTimeout(allin, 3000, ctx3, 40);
+  </script>
+
+    
+
+  <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-10812217-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
