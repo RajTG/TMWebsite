@@ -203,7 +203,8 @@
         cursor:pointer;
         transition: all 0.4s ease-out;
         /*box-shadow: 0px 35px 77px -17px rgba(243,210,80,0.44); */
-        box-shadow: 0px 0px 5px 5px rgba(243,210,80,0.44);
+        box-shadow: 0 0 10px 10px rgba(243,210,80,0.8);
+        /*box-shadow: 0px 0px 5px 5px rgba(243,210,80,0.44);*/
         overflow:hidden;
         color:white;
         
@@ -212,14 +213,14 @@
  
       .tile .text
       {
-      /*   z-index:99; */
+      
         position:absolute;
         padding:30px;
         height:calc(100% - 60px);
       }
       .tile h2
       {
-       
+        color:#f3d250;
         font-weight:300;
         margin:0;
         text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
@@ -229,40 +230,27 @@
         font-weight:100;
         margin:10px 0 0 0;
         font-style:italic;
-         transform: translateX(200px);
+         
       }
       .tile p
       {
         font-weight:300;
         margin:10px 0 0 0;
         line-height: 25px;
-      /*   opacity:0; */
-        transform: translateX(-200px);
+      
+        
         transition-delay: 0.2s;
       }
       .animate-text
       {
-        opacity:0;
-        transition: all 0.6s ease-in-out;
+        opacity:1; 
       }
       .tile:hover
       {
-       background-color:#231f20; 
-      box-shadow: 0 0 10px 10px rgba(243,210,80,0.8);
         transform:scale(1.05);
       }
-      .tile:hover h2{
-        color:#f3d250;
-      }
-      .tile:hover img
-      {
-        opacity: 0.2;
-      }
-      .tile:hover .animate-text
-      {
-        transform:translateX(0);
-        opacity:1;
-      }
+
+   
 
       #contpoly{
         -webkit-clip-path:polygon(100% 0, 0 0, 0 100%, 60% 100%);
@@ -565,7 +553,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            z-index: 1;
+            z-index: -1;
           }
           
           .snip1543:hover h3,
@@ -676,17 +664,19 @@
     }
 
     #b0{
-      display:inline-block;
+      display:block;
     }
     #meetinfo{
-      left:30%;
+      left:10%;
       top:30%;
       display:none;
+      
     }
 
-    .flip-card{
-      left:60%;
+    .tile{
+      background-color: #231f20;
     }
+ 
 
     #about{
       color:#000;
@@ -720,7 +710,7 @@
       margin:5px;
     }
     #snipdiv{
-      left:35%;
+      left:32%;
       top:40%;
     }
 
@@ -750,12 +740,10 @@
       width:100vw;
     }
 
-    #b0{
-      display: inline-block;
-    }
+
     #meetinfo{
-      left:50%;
-      display:none;
+      left:60%;
+      transform:scale(0.75);
       top:40%;
 
     }
@@ -771,13 +759,7 @@
       height:75%;
     }
 
-    #circularLoader,#circularLoader1,#circularLoader2
-    {
-      width:170px;
-      height:170px;
-      text-align:  center;
-
-    }
+  
 
     #sniprow{
       width:30vw;
@@ -867,10 +849,7 @@
         padding:10vw;
       }
       
-      #circularLoader,#circularLoader1,#circularLoader2{
-        width:480;
-        height:480;
-      }
+
 
       #loaderp{
         font-size: 40px;
@@ -981,15 +960,15 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
             </button>
-            <a id="tmwordpic" class="navbar-brand" href="#group1"><img src="tmword1.jpg"></a>
+            <a id="tmwordpic" class="navbar-brand" href="https://www.toastmasters.org/"><img src="tmword1.jpg"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarr">
         <ul class="nav navbar-nav navbar-right">
-          <li id="b0"><a href="#group1" onclick="showMeet()">Next Meeting</a></li>
-          <li id="b1"><a href="#group1">Home</a></li>
-          <li id="b2"><a href="#group2">About</a></li>
-          <li id="b3"><a href="#group3">Awards</a></li>         
-          <li id="b5"><a href="#group4">Contact</a></li>
+          <li id="b0"><a data-toggle="collapse" data-target=".in" href="#group1" onclick="showMeet()">Next Meeting</a></li>
+          <li id="b1"><a data-toggle="collapse" data-target=".in" href="#group1">Home</a></li>
+          <li id="b2"><a data-toggle="collapse" data-target=".in" href="#group2">About</a></li>
+          <li id="b3"><a data-toggle="collapse" data-target=".in" href="#group3">Awards</a></li>         
+          <li id="b5"><a data-toggle="collapse" data-target=".in" href="#group4">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -998,17 +977,22 @@
 
 
 <script>
-   $(function () {
-            $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function () {
-                    $('.navbar-toggle:visible').click();
-            });
-    });
-function showMeet() {
 
-  if(document.getElementById('meetinfo').style.display == 'none')
-      document.getElementById('meetinfo').style.display = "inline-block";
-  else
+function showMeet() {
+  console.log("called");
+  if(document.getElementById('meetinfo').style.display == 'none'){
+      
+      document.getElementById('meetinfo').style.display = "block";
+      console.log("called inside if");
+    }
+  else if(document.getElementById('meetinfo').style.display == "block"){
+  
       document.getElementById('meetinfo').style.display = "none";
+    console.log("called inside else");
+  }
+  else{
+    document.getElementById('meetinfo').style.display = "block";
+  }
 }
 </script>
 
@@ -1026,7 +1010,7 @@ function showMeet() {
                   <div class="text">
                       <h2>Next Meeting</h2>
                       <h4 class="animate-text">6:00 pm</h4>
-                      <h4 class="animate-text">3rd April</h4>
+                      <h4 class="animate-text">17th April</h4>
                       <h4 class="animate-text">LH 7</h4>
                       <p class="animate-text">TMOD : TBA </p>
                       <p class="animate-text">Theme: TBA </p>
@@ -1235,7 +1219,7 @@ function showMeet() {
             <div id="contitle" class="title" >CONTACT US</div>
             <div id="whodiv" class="title" style="font-size:0.8em;">
             <br>            
-              <a id="wholink" href="https://rajtg.github.io">Toasted to perfection with &hearts; by RTG</a>
+              <a id="wholink" href="#">Toasted to perfection with &hearts; by RTG</a>
             
             </div>
                     
