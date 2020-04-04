@@ -940,6 +940,19 @@
 }
   </style>
 </head>
+
+<!-- IMPORTANT INFORMATION -->
+
+<!-- IF ADDING MORE INFO, BEST TO MAKE A SEPERATE PAGE AND ADD A LINK TO IT IN THE NAVBAR BUTTON. THIS WILL REDUCE TIME NEEDED SUBSTANTIALLY COMPARED TO CHANGING THIS PAGE-->
+
+<!-- To easliy understand how the images and text move according to the layer, look at https://codepen.io/gyopiazza/pen/BazoG or https://gist.github.com/CombatCreative/c63a2fc035920c7cc199 -->
+
+<!-- To accomodate the fancy parallax effect, quite a few media queries have been used above so before changing anything read them to determine effects of change-->
+<!-- There are multiple copies of the same background images used of different dimensions to make it fit for all screens -->
+<!-- On mobile, the image behind the About section will not appear, can change this from media queries-->
+<!-- info that requires to be updated frequently has comments before it starting with "CHANGE" -->
+
+
 <body>
   <!-- colors #eaeaea(light grey) #231f20(dark grey) #ad974f(golden) #8e793e(dark golden) #f3d250(yellow dark)-->
   <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#231f20; font-size: 1.4em;">
@@ -985,18 +998,19 @@ function showMeet() {
   }
 }
 </script>
-
   <!-- colors #eaeaea(light grey) #231f20(dark grey) #ad974f(golden) #8e793e(dark golden) -->
   <div class="parallax">
       <div id="group1" class="parallax__group">
           <div class="parallax__layer parallax__layer--base">
             <div>
+            <!-- CHANGE CLUB TITLE -->
               <span id="mainhd" style="color:#ffd935; font-family: 'Roboto', sans-serif;" class="mainheading">TMI NIT-Trichy</span>
             </div>
             <div id="meetinfo">
             <div class="wrap">
                 <div class="tile"> 
-                  
+                 <!--CHANGE MEETING INFO -->
+                 <!-- to put a poster, make this a clickable link to a poster in google drive (suggestion)-->
                   <div class="text">
                       <h2>Next Meeting</h2>
                       <h4 class="animate-text">6:00 pm</h4>
@@ -1019,6 +1033,8 @@ function showMeet() {
               <br>
               <div id="about" >About Us</div>
               <br>
+              <!-- CHANGE ABOUT INFORMATION -->
+              <!-- if updating, see if the new text appears properly on mobile screens -->
               <div id="aboutpara" ><p id="aboutp">We are a bunch of students from NIT Trichy. We are passionate about communication and leadership skills. We are constantly communicating with people around us - at home, for work, college, while commuting, etc. We all know the significance of clear communication, of effectively conveying our ideas to others. Many of us are leaders or aspiring to be one. Effective communication is a key trait of successful people. That is what members at Toastmasters NIT Trichy learn (and help others with), during club meetings.</p> </div>
             </div>
           </div>
@@ -1027,6 +1043,7 @@ function showMeet() {
           <img id="allpic" src="tmallpic11.jpg" alt="hello" style="height:100vh; width:100%">  
         </div>
       </div>
+
       <div id="group3" class="parallax__group3rd">
         <div class="parallax__layer parallax__layer--fore">
           
@@ -1034,55 +1051,38 @@ function showMeet() {
             <div id="svgcont" class="row">
               <svg viewBox="0 0 1200 800">
                    <symbol id="s-text">
+                   	<!-- CHANGE NUMBER OF AWARDS, MEETINGS AND MEMBERS  -->
                      <text text-anchor="middle"
                            x="50%"
                            y="35%"
-                           class="text--line"
-                           >
-                       Awards
-                     </text>
+                           class="text--line"> Awards </text>
                      <text text-anchor="middle"
                            x="50%"
                            y="68%"
-                           class="texline2"
-                           >
-                       25
-                     </text>
+                           class="texline2"> 25 </text>
                      </symbol>
-                   </symbol>
+                  
                    <symbol id="st-text">
                      <text text-anchor="middle"
                            x="15%"
                            y="35%"
-                           class="text--line"
-                           >
-                       Meetings
-                     </text>
+                           class="text--line"> Meetings </text>
+
                      <text text-anchor="middle"
                            x="15%"
                            y="68%"
-                           class="texline2"
-                           >
-                       134
-                     </text>
+                           class="texline2"> 134 </text>
                      </symbol>
                      
                      <symbol id="stt-text">
                      <text text-anchor="middle"
                            x="80%"
                            y="35%"
-                           class="text--line"
-                           >
-                       Members
-                     </text>
+                           class="text--line"> Members </text>
                      <text text-anchor="middle"
                            x="80%"
                            y="68%"
-                           class="texline2"
-                           >
-                       35
-                     </text>
-                     
+                           class="texline2"> 35 </text>
                    </symbol>
                    
                    
@@ -1132,6 +1132,7 @@ function showMeet() {
           
         </div>
       </div>
+
       <div id="group4" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
 
@@ -1140,6 +1141,7 @@ function showMeet() {
               <div class="col-md-6">
               <figure class="snip1543">
                   <figcaption>
+                  	<!-- CHANGE PRESIDENT AND VP-PR INFO --> 
                     <h3 style="font-size:20px;">Akshaya</h3>
                     <h1 style="font-size:150%;">President</h1>                    
                     <p>9487763540</p>                    
@@ -1160,7 +1162,8 @@ function showMeet() {
             </div>
           </div>
         </div>
-
+          <!-- CHANGE SOCIAL MEDIA HANDLES -->
+          <!-- if updating, update both the divs below, 'sc-icon-div2' is used for a smaller screen size -->
           <div id="sc-icon-div1" class="title">
             <div class="footer-social-icons">
               <h4 class="_14">Follow us on</h4>
@@ -1193,8 +1196,9 @@ function showMeet() {
           <div class="parallax__layer parallax__layer--back">
             <div id="contitle" class="title" >CONTACT US</div>
             <div id="whodiv" class="title" style="font-size:0.8em;">
+            <!-- DO NOT CHANGE THIS :) -->
             <br>            
-              <a id="wholink" href="#">Toasted to perfection with &hearts; by RTG</a>
+              <a id="wholink" href="https://github.com/RajTG/TMWebsite">Toasted to perfection with &hearts; by RTG</a>
             
             </div>
                     
